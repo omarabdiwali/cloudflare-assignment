@@ -2,11 +2,15 @@ import { NextResponse } from 'next/server';
 export const runtime = "edge"
 
 const filterData = (a, b) => {
-  let name = a.name.toLowerCase();
-  let office = a.office.toLowerCase();
-  let skills = a.skills.map(s => s.toLowerCase()).join("/");
+  let name = b.name ? b.name.toLowerCase() : "";
+  let office = b.office ? b.office.toLowerCase() : "";
+  let skill = b.skill ? b.toLowerCase() : "";
 
-  if (name.includes(b.name.toLowerCase()) && office.includes(b.office.toLowerCase()) && skills.includes(b.skill.toLowerCase())) {
+  let eName = a.name.toLowerCase();
+  let eOffice = a.office.toLowerCase();
+  let eSkills = a.skills.map(s => s.toLowerCase()).join('/');
+
+  if (eName.includes(name) && eOffice.includes(office) && eSkills.includes(skill)) {
     let minSalary = b.minSalary ? b.minSalary : -Infinity;
     let maxSalary = b.maxSalary ? b.maxSalary : Infinity;
     if (a.salary <= maxSalary && a.salary >= minSalary) {
@@ -16,18 +20,18 @@ const filterData = (a, b) => {
   return false;
 }
 
-export async function GET(req) {
-  const chart = await process.env.ORG.get("organization");
-  const data = JSON.parse(chart);
-  let emps = [];
-  let dep = data.organization.departments;
+// export async function GET(req) {
+//   const chart = await process.env.ORG.get("organization");
+//   const data = JSON.parse(chart);
+//   let emps = [];
+//   let dep = data.organization.departments;
 
-  for (let i = 0; i < dep.length; i++) {
-    emps.push(...dep[i].employees);
-  }
+//   for (let i = 0; i < dep.length; i++) {
+//     emps.push(...dep[i].employees);
+//   }
 
-  return new NextResponse(JSON.stringify({ "employees": emps }));
-}
+//   return new NextResponse(JSON.stringify({ "employees": [] }));
+// }
 
 export async function POST(req) {
   const employee = await req.json();
