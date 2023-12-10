@@ -6,7 +6,7 @@ export default function Home() {
   const [orgData, setOrgData] = useState([]);
 
   useEffect(() => {
-    fetch('/org-chart').then(res => res.json())
+    fetch('/format-data').then(res => res.json())
       .then(data => setOrgData(data)).catch(err => console.error(err));
   }, [])
 

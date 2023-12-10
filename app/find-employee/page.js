@@ -42,7 +42,7 @@ export default function Page() {
       "maxSalary": maxSalary.length > 0 ? Number(maxSalary) : Infinity, "office": office, "skill": skill
     };
 
-    fetch('/me', {
+    fetch('/employee', {
       method: "POST",
       body: JSON.stringify(req)
     }).then(res => res.json()).then(data => {
@@ -54,7 +54,7 @@ export default function Page() {
   return (
     <>
       <div className='mt-8 mx-3 flex flex-row space-x-3'>
-        <a href='/' className='hover:underline'>Organization Table</a>
+        <a href='/orgchart' className='hover:underline'>Organization Table</a>
         <div className='text-slate-600'>/</div>
         <a href='/format-csv' className='hover:underline'>Format CSV String</a>
       </div>

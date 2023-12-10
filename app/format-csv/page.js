@@ -24,7 +24,7 @@ export default function Page() {
     <>
       <div className=''>
         <div className='flex flex-row space-x-3 mx-3 mt-5'>
-          <a href='/' className='hover:underline'>Organization Table</a>
+          <a href='/orgchart' className='hover:underline'>Organization Table</a>
           <div className='text-slate-400'>/</div>
           <a href='/find-employee' className='hover:underline'>Find Employee</a>
         </div>
