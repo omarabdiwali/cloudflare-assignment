@@ -1,8 +1,6 @@
-import './globals.css'
-
 export const metadata = {
-  title: 'Cloudflare Assignment',
-  description: 'Cloudflare Assignment',
+  title: 'Format CSV',
+  description: 'Format CSV To JSON',
 }
 
 export default function RootLayout({ children }) {

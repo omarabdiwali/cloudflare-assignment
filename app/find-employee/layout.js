@@ -1,8 +1,6 @@
-import './globals.css'
-
 export const metadata = {
-  title: 'Cloudflare Assignment',
-  description: 'Cloudflare Assignment',
+  title: 'Find Employee(s)',
+  description: 'Find Employee(s)',
 }
 
 export default function RootLayout({ children }) {
