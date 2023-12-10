@@ -29,6 +29,6 @@ const dataToFormat = (org) => {
 
 export async function GET(req) {
   const organization = await process.env.ORG.get("organization");
-  const formatData = dataToFormat(organization);
+  const formatData = dataToFormat(JSON.parse(organization));
   return new NextResponse(JSON.stringify(formatData));
 }
