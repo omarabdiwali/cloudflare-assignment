@@ -57,7 +57,7 @@ function Row(props) {
                 </TableHead>
                 <TableBody>
                   {row.employees.map((emp) => (
-                    <TableRow key={emp.id}>
+                    <TableRow key={emp.name}>
                       <TableCell component="th" scope="row">
                         {emp.name}
                       </TableCell>
@@ -95,7 +95,7 @@ export default function CollapsibleTable({ rows }) {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <Row key={row.id} row={row} />
+            <Row key={row.name} row={row} />
           ))}
         </TableBody>
       </Table>
