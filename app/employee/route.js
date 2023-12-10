@@ -4,7 +4,7 @@ export const runtime = "edge"
 const filterData = (a, b) => {
   let name = b.name !== undefined ? b.name.toLowerCase() : "";
   let office = b.office !== undefined ? b.office.toLowerCase() : "";
-  let skill = b.skill !== undefined ? b.toLowerCase() : "";
+  let skill = b.skill !== undefined ? b.skill.toLowerCase() : "";
 
   let eName = a.name.toLowerCase();
   let eOffice = a.office.toLowerCase();
@@ -19,19 +19,6 @@ const filterData = (a, b) => {
   }
   return false;
 }
-
-// export async function GET(req) {
-//   const chart = await process.env.ORG.get("organization");
-//   const data = JSON.parse(chart);
-//   let emps = [];
-//   let dep = data.organization.departments;
-
-//   for (let i = 0; i < dep.length; i++) {
-//     emps.push(...dep[i].employees);
-//   }
-
-//   return new NextResponse(JSON.stringify({ "employees": [] }));
-// }
 
 export async function POST(req) {
   const employee = await req.json();
