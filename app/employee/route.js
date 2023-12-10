@@ -2,9 +2,9 @@ import { NextResponse } from 'next/server';
 export const runtime = "edge"
 
 const filterData = (a, b) => {
-  let name = b.name ? b.name.toLowerCase() : "";
-  let office = b.office ? b.office.toLowerCase() : "";
-  let skill = b.skill ? b.toLowerCase() : "";
+  let name = b.name !== undefined ? b.name.toLowerCase() : "";
+  let office = b.office !== undefined ? b.office.toLowerCase() : "";
+  let skill = b.skill !== undefined ? b.toLowerCase() : "";
 
   let eName = a.name.toLowerCase();
   let eOffice = a.office.toLowerCase();
@@ -40,10 +40,11 @@ export async function POST(req) {
   
   let dep = orgChart.organization.departments;
   let emps = [];
+  let empDep = employee.department !== undefined ? employee.department : "";
 
   for (let i = 0; i < dep.length; i++) {
     const name = dep[i].name.toLowerCase();
-    if (name.includes(employee.department.toLowerCase())) {
+    if (name.includes(empDep.toLowerCase())) {
       emps.push(...dep[i].employees);
     }
   }
