@@ -16,6 +16,10 @@ const filterData = (a, b) => {
   return false;
 }
 
+export async function GET(req) {
+  return new NextResponse(JSON.stringify({ "employees": [] }));
+}
+
 export async function POST(req) {
   const employee = await req.json();
   const data = await process.env.ORG.get("organization");
