@@ -23,10 +23,7 @@ export async function GET(req) {
   let dep = data.organization.departments;
 
   for (let i = 0; i < dep.length; i++) {
-    const name = dep[i].name.toLowerCase();
-    if (name.includes(employee.department.toLowerCase())) {
-      emps.push(...dep[i].employees);
-    }
+    emps.push(...dep[i].employees);
   }
 
   return new NextResponse(JSON.stringify({ "employees": emps }));
