@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import CollapsibleTable from '@/component/CollapsibleTable';
 
-export default function Home() {
+export default function Page() {
   const [orgData, setOrgData] = useState([]);
 
   useEffect(() => {

@@ -14,7 +14,6 @@ const dataToFormat = (org) => {
       const emp = employees[i];
       if (emp.name !== dep.managerName) {
         let chTree = { name: emp.name, department: emp.department, office: emp.office, skills: emp.skills.join(' / ') };
-        id += 1;
         tree.employees.push(chTree)
       } else {
         tree.office = emp.office;
@@ -30,6 +29,6 @@ const dataToFormat = (org) => {
 
 export async function GET(req) {
   const organization = await process.env.ORG.get("organization");
-  const formatData = dataToFormat(JSON.parse(organization));
+  const formatData = dataToFormat(organization);
   return new NextResponse(JSON.stringify(formatData));
 }
