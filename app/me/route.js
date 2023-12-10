@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+export const runtime = "edge"
 
 const filterData = (a, b) => {
   let name = a.name.toLowerCase();

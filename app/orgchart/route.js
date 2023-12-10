@@ -1,8 +1,5 @@
 import { NextResponse } from "next/server";
-
-export const config = {
-  runtime: 'edge'
-}
+export const runtime = "edge"
 
 const dataToFormat = (org) => {
   let totalData = [];
